@@ -28,7 +28,8 @@ module.exports = {
 		new CopyWebpackPlugin([
             { from: './app/index.html' },
 			{ from: './app/favicon.ico' },
-			{ from: './app/assets', to: 'assets' }
+			{ from: './app/assets', to: 'assets' },
+			{ from: './app/index.css' }
 		])
 	],
 	devtool: 'eval'

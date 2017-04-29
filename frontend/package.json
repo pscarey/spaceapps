@@ -87,6 +87,8 @@
     "webpack-hot-middleware": "^2.17.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --progress --history-api-fallback --hot --inline --open"
+    "start": "webpack-dev-server --progress --history-api-fallback --hot --inline --open",
+    "build": "webpack",
+    "server": "node server.js"
   }
 }
