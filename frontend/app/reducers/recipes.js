@@ -1,4 +1,4 @@
-import { REQUEST_RECIPES, RECIEVE_RECIPES } from '../actions/recipes';
+import { REQUEST_RECIPES, RECIEVE_RECIPES, SELECT_RECIPE } from '../actions/recipes';
 import updateState from './update-state';
 
 const initialState = {
@@ -21,12 +21,20 @@ const recieveRecipes = (state, action) => {
     });
 };
 
+const selectRecipe = (state, action) => {
+    return updateState(state, {
+        currentRecipe: action.recipe
+    });
+};
+
 export default function (state = initialState, action) {
     switch (action.type) {
         case REQUEST_RECIPES:
             return requestRecipes(state, action);
         case RECIEVE_RECIPES:
             return recieveRecipes(state, action);
+        case SELECT_RECIPE:
+            return selectRecipe(state, action);
         default:
             return state;
     }
