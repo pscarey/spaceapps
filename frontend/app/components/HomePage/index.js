@@ -13,11 +13,11 @@ const ListPoint = props => (
 const BSMiddle = props => {
   return (
     <Row>
-      <Col xs={2} md={4} />
-      <Col xs={8} md={4}>
+      <Col xs={0} sm={2} md={3} />
+      <Col xs={12} sm={8} md={6}>
         {props.children}
       </Col>
-      <Col xs={2} md={4} />
+      <Col xs={0} sm={2} md={3} />
     </Row>
   );
 };
@@ -27,7 +27,7 @@ const Spacer = props => { return <div style={{height: props.height}} />};
 class HomePage extends React.Component {
   render() {
     return (
-      <div>
+      <div style={{margin: '0 10px 0 10px'}}>
         <div style={{height: 100}}/>
 
         <BSMiddle>

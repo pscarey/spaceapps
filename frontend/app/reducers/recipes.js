@@ -8,7 +8,8 @@ const initialState = {
 const requestRecipes = (state, action) => {
     return updateState(state, { 
         isLoading: true,
-        postcode: action.postcode
+        postcode: action.postcode,
+        time: action.time
     });
 };
 
@@ -18,7 +19,7 @@ const recieveRecipes = (state, action) => {
         recipes: action.recipes,
         error: action.error
     });
-}
+};
 
 export default function (state = initialState, action) {
     switch (action.type) {

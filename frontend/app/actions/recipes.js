@@ -1,11 +1,13 @@
 import request from 'request-promise-native';
+import * as querystring from 'querystring';
 
 export const REQUEST_RECIPES = 'recipes/REQUEST_RECIPES';
 export const RECIEVE_RECIPES = 'recipes/RECIEVE_RECIPES';
 
-export const requestRecipes = postcode => ({
+export const requestRecipes = (postcode, time) => ({
     type: REQUEST_RECIPES,
-    postcode: postcode
+    postcode: postcode,
+    time: time
 });
 
 export const recieveRecipes = (recipes, error) => ({
@@ -14,12 +16,15 @@ export const recieveRecipes = (recipes, error) => ({
     error: error
 });
 
-export function getRecipes(postcode) {
+export function getRecipes(postcode, time) {
   return function (dispatch) {
-    dispatch(requestRecipes(postcode))
+    dispatch(requestRecipes(postcode, time));
     
     var options = {
-        uri: 'http://localhost:3000/recipes',
+        uri: 'http://localhost:3000/recipes?' + querystring.stringify({
+          postcode: postcode,
+          time: time
+        }),
         json: true
     };
 
