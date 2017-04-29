@@ -48,17 +48,11 @@ class HomePage extends React.Component {
 
         <Spacer height="100px" />
         <BSMiddle>
-          <h3>It's time for us to do something about food waste!</h3>
+          <h3>If Food Wastage was a country, it would rank third after USA and China as contributors to greenhouse gases It's time for us to do something about food waste!</h3>
         </BSMiddle>
 
         <Spacer height="50px" />
         <BSMiddle><Feature /></BSMiddle>
-
-        <Spacer height="50px" />
-        <BSMiddle>Point 3</BSMiddle>
-
-        <Spacer height="50px" />
-        <BSMiddle>Point 4</BSMiddle>
 
         <Spacer height="50px" />
         <BSMiddle>

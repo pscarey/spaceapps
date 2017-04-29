@@ -26,11 +26,11 @@ injectTapEventPlugin();
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: blueGrey800,
-    primary2Color: blueGrey800,
-    primary3Color: blueGrey800,
-    accent1Color: '#f26c4f',
-    accent2Color: grey100,
+    primary1Color: '#00008B',
+    primary2Color: '#00008B',
+    primary3Color: '#00008B',
+    accent1Color: '#FF5500',
+    accent2Color: '#262F44',
     accent3Color: grey500,
     pickerHeaderColor: '#f26c4f',
     textColor: darkBlack,
