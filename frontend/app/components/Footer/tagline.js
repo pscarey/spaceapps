@@ -9,8 +9,8 @@ import {
 class Tagline extends React.Component {
   render(){
     return (
-      <div>
-        <h2 style={{color: white}}>Think global, live local</h2>
+      <div style={{backgroundColor: deepOrangeA400, margin: '0', padding: '10px', textAlign: 'center', height: 120}}>
+        <h2 style={{margin: 'auto', color: white, lineHeight: '100px'}}>Think global, live local.</h2>
       </div>
     )
   }

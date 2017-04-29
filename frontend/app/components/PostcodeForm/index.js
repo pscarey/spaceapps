@@ -9,6 +9,31 @@ import { getRecipes } from '../../actions/recipes';
 import { browserHistory } from 'react-router';
 import Card from 'material-ui/Card';
 
+const form = (props, onPostcodeSubmit) => {
+    const { handleSubmit, pristine, reset, submitting } = props
+    return (
+        <form onSubmit={handleSubmit(onPostcodeSubmit)} autoComplete="off">
+            <div style={{textAlign: 'center', display: 'block'}}>
+                <Field 
+                    name="postcode"
+                    component={TextField}
+                    hintText="2000"
+                    floatingLabelFixed
+                    floatingLabelText="Your Postcode" 
+                    style={{width: 160, marginRight: 15, marginBottom: 20}}
+                /><br />
+                <RaisedButton
+                    primary
+                    disabled={pristine || submitting}
+                    label="Show Recipes"
+                    type="submit"
+                    style={{width: 160, position: 'relative', top: -10}}
+                />
+            </div>
+        </form>
+    );
+};
+
 class PostcodeForm extends Component {
     constructor(props) {
         super(props)
@@ -23,30 +48,17 @@ class PostcodeForm extends Component {
     };
     
     render() {
-        const { handleSubmit, pristine, reset, submitting } = this.props
         return (
             <div style={{width: '100%', textAlign: 'center'}}>
-                <Card style={{height:140, width: 200, margin: 'auto'}}>
-                    <form onSubmit={handleSubmit(this.onPostcodeSubmit)} autoComplete="off">
-                        <div style={{textAlign: 'center', display: 'block'}}>
-                            <Field 
-                                name="postcode"
-                                component={TextField}
-                                hintText="2000"
-                                floatingLabelFixed
-                                floatingLabelText="Your Postcode" 
-                                style={{width: 160, marginRight: 15, marginBottom: 20}}
-                            /><br />
-                            <RaisedButton
-                                primary
-                                disabled={pristine || submitting}
-                                label="Show Recipes"
-                                type="submit"
-                                style={{width: 160, position: 'relative', top: -10}}
-                            />
-                        </div>
-                    </form>
-                </Card>
+                {this.props.noCard ? (
+                    <div style={{height:140, width: 200, margin: 'auto'}}>
+                        {form(this.props, this.onPostcodeSubmit)}
+                    </div>
+                ):(
+                    <div style={{height:140, width: 200, margin: 'auto'}}>
+                        {form(this.props, this.onPostcodeSubmit)}
+                    </div>
+                )}
             </div>
         );
     }

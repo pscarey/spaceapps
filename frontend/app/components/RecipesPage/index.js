@@ -10,6 +10,9 @@ import { Row, Col } from 'react-bootstrap';
 import Dimensions from 'react-dimensions'
 import Card from 'material-ui/Card';
 import { selectRecipe } from '../../actions/recipes';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class RecipesPage extends React.Component {
     constructor(props) {
@@ -47,8 +50,8 @@ class RecipesPage extends React.Component {
             (
               <div> 
                 <Row style={{padding: 30, marginBottom: 20}}>
-                  <Col xs={0} sm={0} md={2}/>
-                  <Col xs={12} sm={8} md={4}>
+                  <Col xs={0} sm={1} md={2}/>
+                  <Col xs={12} sm={10} md={8}>
                     <Card style={{marginBottom: 20, padding: '5px 25px 10px 25px'}}>
                       {isEmpty ? (
                         <div>
@@ -65,10 +68,14 @@ class RecipesPage extends React.Component {
                       )}
                     </Card>
                   </Col>
-                  <Col xs={12} sm={4} md={4}>
+                  <Col xs={0} sm={1} md={2}/>
+                </Row>
+                <Row>
+                  <Col xs={2} sm={3} md={4}/>
+                  <Col xs={8} sm={6} md={4}>
                       <PostcodeForm />
                   </Col>
-                  <Col xs={0} sm={0} md={2}/>
+                  <Col xs={2} sm={3} md={4}/>
                 </Row>
                 <Row height={this.props.containerHeight-200}>
                   <Col xs={0} sm={1} md={2}/>

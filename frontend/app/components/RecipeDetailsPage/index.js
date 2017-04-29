@@ -28,7 +28,7 @@ class RecipeDetailsPage extends React.Component {
       return (
         <div>
           <AppBar
-            title={"What's for dinner?"}
+            title={"Recipe Details"}
             onTitleTouchTap={this.handleTitleTouchTap}
             iconElementLeft={
                 <IconButton

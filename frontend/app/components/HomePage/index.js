@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import Page from '../../components/Page';
 import Feature from './feature.js';
-import Tagline from './tagline.js';
 import { Row, Col } from 'react-bootstrap';
 import PostcodeForm from '../PostcodeForm';
 import { connect } from 'react-redux';
@@ -60,12 +59,7 @@ class HomePage extends React.Component {
         </BSMiddle>
 
         <Spacer height="100px" />
-
         <Spacer height="50px" />
-        <BSMiddle style={{backgroundColor: deepOrangeA400, margin: '0', padding: '10px', textAlign: 'center', height: 120}}>
-          <Tagline />
-        </BSMiddle>
-
       </div>
     );
   }
