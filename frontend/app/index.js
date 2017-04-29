@@ -1,35 +1,16 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Router, Route, IndexRedirect, Redirect, browserHistory } from 'react-router';
 import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import 'stream-browserify';
 
-injectTapEventPlugin();
-
-import HomePage from './components/HomePage'
-
-ReactDom.render(
-    <Router>
-        <Route path="/" component={HomePage} />
-    </Router>,
-	document.getElementById('app')
-);
-
-
-/*    
-<Redirect from="*" to="/" />
-
-import reducer from './reducers';
-const store = createStore(reducer, compose(
+import reducers from './reducers';
+const store = createStore(reducers, compose(
     applyMiddleware(thunk),
     window.devToolsExtension ? window.devToolsExtension() : f => f
-));    
-    <Provider store={store}>
-        
-    </Provider>
+));
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -39,6 +20,9 @@ import {
   white, darkBlack, fullBlack
 } from 'material-ui/styles/colors';
 import { fade } from 'material-ui/utils/colorManipulator';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -58,6 +42,23 @@ const muiTheme = getMuiTheme({
     shadowColor: fullBlack,
   }
 });
-        <MuiThemeProvider muiTheme={muiTheme}>
-        </MuiThemeProvider>
-*/
+
+import Page from './components/Page';
+import HomePage from './components/HomePage'
+import RecipesPage from './components/RecipesPage'
+
+ReactDom.render(
+    <MuiThemeProvider muiTheme={muiTheme}>
+        <Provider store={store}>
+            <Router history={browserHistory}>
+                <Route path="/" component={Page}>
+                    <IndexRedirect to="home" />
+                    <Route path="home" component={HomePage} />
+                    <Route path="recipes" component={RecipesPage} />
+                </Route>
+                <Redirect from="*" to="/" />
+            </Router>
+        </Provider>
+    </MuiThemeProvider>,
+	document.getElementById('app')
+);
