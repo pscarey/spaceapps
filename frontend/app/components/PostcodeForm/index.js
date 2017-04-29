@@ -7,7 +7,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { setPostcode } from '../../actions/postcode';
 import { getRecipes } from '../../actions/recipes';
 import { browserHistory } from 'react-router';
-import Card from 'material-ui/Card';
 
 const form = (props, onPostcodeSubmit) => {
     const { handleSubmit, pristine, reset, submitting } = props
@@ -45,20 +44,17 @@ class PostcodeForm extends Component {
         this.props.dispatch(setPostcode(values.postcode));
         this.props.dispatch(getRecipes(values.postcode));
         browserHistory.push('/recipes');
+        if (this.props.onSubmitComplete) {
+            this.props.onSubmitComplete();
+        }
     };
     
     render() {
         return (
             <div style={{width: '100%', textAlign: 'center'}}>
-                {this.props.noCard ? (
-                    <div style={{height:140, width: 200, margin: 'auto'}}>
-                        {form(this.props, this.onPostcodeSubmit)}
-                    </div>
-                ):(
-                    <div style={{height:140, width: 200, margin: 'auto'}}>
-                        {form(this.props, this.onPostcodeSubmit)}
-                    </div>
-                )}
+                <div style={{height:140, width: 200, margin: 'auto'}}>
+                    {form(this.props, this.onPostcodeSubmit)}
+                </div>
             </div>
         );
     }

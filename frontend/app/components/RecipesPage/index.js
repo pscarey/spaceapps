@@ -12,13 +12,15 @@ import Card from 'material-ui/Card';
 import { selectRecipe } from '../../actions/recipes';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
 
 class RecipesPage extends React.Component {
     constructor(props) {
       super(props);
       this.handleTitleTouchTap = this.handleTitleTouchTap.bind(this);
       this.handleGripTouchTap = this.handleGripTouchTap.bind(this);
+      this.handleOpenTouchTap = this.handleOpenTouchTap.bind(this);
+      this.handleClose = this.handleClose.bind(this);  
+      this.state = { open: false };
     }
 
     handleTitleTouchTap() {
@@ -30,6 +32,14 @@ class RecipesPage extends React.Component {
         this.props.dispatch(selectRecipe(recipe));
         browserHistory.push('/recipe-details');
       };
+    }
+
+    handleOpenTouchTap() {
+      this.setState({ open: true });
+    }
+
+    handleClose() {
+      this.setState({ open: false });
     }
 
     render() {
@@ -57,6 +67,11 @@ class RecipesPage extends React.Component {
                         <div>
                           <h4>Pick a postcode to get started...</h4>
                           <p>Enter a postcode to recieve personalised recipe recommendations:</p>
+                          <FlatButton
+                              label="Select Postcode"
+                              primary
+                              onTouchTap={this.handleOpenTouchTap}
+                          />
                         </div>
                       ) : (
                         <div>
@@ -64,6 +79,11 @@ class RecipesPage extends React.Component {
                           <h4>Here are your eco friendly recipes:</h4>
                           <p>Each one has a score based on your location, the time of year, and the lifecycle of the ingredients. Pick a recipe to find out more about what goes into it.</p>
                           <p><strong>Start making better food choices today!</strong></p>
+                          <FlatButton
+                              label="Change Postcode"
+                              primary
+                              onTouchTap={this.handleOpenTouchTap}
+                          />
                         </div>
                       )}
                     </Card>
@@ -73,7 +93,7 @@ class RecipesPage extends React.Component {
                 <Row>
                   <Col xs={2} sm={3} md={4}/>
                   <Col xs={8} sm={6} md={4}>
-                      <PostcodeForm />
+
                   </Col>
                   <Col xs={2} sm={3} md={4}/>
                 </Row>
@@ -125,6 +145,21 @@ class RecipesPage extends React.Component {
                   </Col>
                   <Col xs={1} sm={3} md={4}/>
                 </Row>
+                <Dialog
+                  title="Select Postcode"
+                  actions={[      
+                    <FlatButton
+                      label="Cancel"
+                      primary={true}
+                      onTouchTap={this.handleClose}
+                    />
+                  ]}
+                  open={this.state.open}
+                >
+                  <PostcodeForm 
+                    onSubmitComplete={this.handleClose}
+                  />
+                </Dialog>
               </div>
             )
           }

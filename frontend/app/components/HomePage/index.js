@@ -11,6 +11,7 @@ import {
   grey800, grey300, grey500,
   white, darkBlack, fullBlack
 } from 'material-ui/styles/colors';
+import Card from 'material-ui/Card';
 
 
 const ListPoint = props => (
@@ -52,10 +53,11 @@ class HomePage extends React.Component {
 
         <Spacer height="30px" />
         <BSMiddle style={{margin: '0 10px 0 10px'}}>
-
-          <PostcodeForm
-            onSubmit={this.onPostcodeSubmit}
-          />
+          <Card style={{width: 200, margin: '0 auto'}}>
+            <PostcodeForm
+              onSubmit={this.onPostcodeSubmit}
+            />
+          </Card>
         </BSMiddle>
 
         <Spacer height="100px" />
