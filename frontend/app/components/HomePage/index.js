@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import Page from '../../components/Page';
 import Feature from './feature.js';
+import Tagline from './tagline.js';
 import { Row, Col } from 'react-bootstrap';
 import PostcodeForm from '../PostcodeForm';
 import { connect } from 'react-redux';
@@ -12,7 +13,7 @@ const ListPoint = props => (
 
 const BSMiddle = props => {
   return (
-    <Row>
+    <Row style={props.style}>
       <Col xs={0} sm={2} md={3} />
       <Col xs={12} sm={8} md={6}>
         {props.children}
@@ -27,16 +28,16 @@ const Spacer = props => { return <div style={{height: props.height}} />};
 class HomePage extends React.Component {
   render() {
     return (
-      <div style={{margin: '0 10px 0 10px'}}>
-        <div style={{height: 100}}/>
+      <div style={{margin: '0'}}>
+        <div style={{width:'100%', height: 100, backgroundColor: '#0F2364'}}/>
 
-        <BSMiddle>
-          <h1 style={{width: '100%', textAlign: 'center', fontWeight: 600, color: '#000'}}>
-            What's for dinner?
+        <BSMiddle style={{backgroundColor: '#0F2364', height: 200}}>
+          <h1 style={{width: '100%', textAlign: 'center', fontWeight: 600, fontSize: '4em', color: '#FFFFFF'}}>
+            WHAT'S FOR DINNER?
           </h1>
         </BSMiddle>
 
-        <Spacer height="100px" />
+        <Spacer height="80px" />
         <BSMiddle>
           <h3>If Food Wastage was a country, it would rank third after USA and China as contributors to greenhouse gases It's time for us to do something about food waste!</h3>
         </BSMiddle>
@@ -52,6 +53,12 @@ class HomePage extends React.Component {
         </BSMiddle>
 
         <Spacer height="150px" />
+
+        <Spacer height="50px" />
+        <BSMiddle style={{backgroundColor: '#00008B', margin: '0', padding: '10', textAlign: 'center'}}>
+          <Tagline />
+        </BSMiddle>
+
 
       </div>
     );
