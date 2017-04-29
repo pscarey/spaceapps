@@ -2,6 +2,9 @@ module.exports = (sequelize, DataTypes) => {
   const Ingredient = sequelize.define('Ingredient', {
     name: DataTypes.STRING,
     calories: DataTypes.DOUBLE,
+    daysToProduce: DataTypes.INTEGER,
+    energyUsedToProduce: DataTypes.INTEGER,
+    co2: DataTypes.DOUBLE,
   }, {
     tableName: 'ingredient',
     instanceMethods: {

@@ -17,6 +17,18 @@ module.exports = {
         allowNull: true,
         type: Sequelize.DOUBLE
       },
+      daysToProduce: {
+        allowNull: true,
+        type: Sequelize.INTEGER
+      },
+      energyUsedToProduce: {
+        allowNull: true,
+        type: Sequelize.INTEGER
+      },
+      co2: {
+        allowNull: true,
+        type: Sequelize.DOUBLE
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
