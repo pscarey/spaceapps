@@ -6,6 +6,13 @@ import { Row, Col } from 'react-bootstrap';
 import PostcodeForm from '../PostcodeForm';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
+import {
+  blueGrey800, indigo900,
+  deepOrangeA400, grey100,
+  grey800, grey300, grey500,
+  white, darkBlack, fullBlack
+} from 'material-ui/styles/colors';
+
 
 const ListPoint = props => (
   <div style={{margin: '0 auto', width: 350, height: 60}}>{props.children}</div>
@@ -32,33 +39,33 @@ class HomePage extends React.Component {
         <div style={{width:'100%', height: 100, backgroundColor: '#0F2364'}}/>
 
         <BSMiddle style={{backgroundColor: '#0F2364', height: 200}}>
-          <h1 style={{width: '100%', textAlign: 'center', fontWeight: 600, fontSize: '4em', color: '#FFFFFF'}}>
+          <h1 style={{width: '100%', textAlign: 'center', fontWeight: 600, fontSize: '4em', color: white}}>
             WHAT'S FOR DINNER?
           </h1>
         </BSMiddle>
 
-        <Spacer height="80px" />
-        <BSMiddle>
-          <h3>If Food Wastage was a country, it would rank third after USA and China as contributors to greenhouse gases It's time for us to do something about food waste!</h3>
+        <Spacer height="50px" />
+        <BSMiddle style={{margin: '0 10px 0 10px'}}>
+          <h3>If <strong style={{color: deepOrangeA400}}>Food Wastage</strong> was a country, it would rank third after USA and China as contributors to greenhouse gases... It's time for us to do something about food waste!</h3>
         </BSMiddle>
 
-        <Spacer height="50px" />
-        <BSMiddle><Feature /></BSMiddle>
+        <Spacer height="30px" />
+        <BSMiddle style={{margin: '0 10px 0 10px'}}><Feature /></BSMiddle>
 
-        <Spacer height="50px" />
-        <BSMiddle>
+        <Spacer height="30px" />
+        <BSMiddle style={{margin: '0 10px 0 10px'}}>
+
           <PostcodeForm
             onSubmit={this.onPostcodeSubmit}
           />
         </BSMiddle>
 
-        <Spacer height="150px" />
+        <Spacer height="100px" />
 
         <Spacer height="50px" />
-        <BSMiddle style={{backgroundColor: '#00008B', margin: '0', padding: '10', textAlign: 'center'}}>
+        <BSMiddle style={{backgroundColor: deepOrangeA400, margin: '0', padding: '10px', textAlign: 'center', height: 100}}>
           <Tagline />
         </BSMiddle>
-
 
       </div>
     );

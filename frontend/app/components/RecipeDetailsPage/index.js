@@ -27,7 +27,7 @@ class RecipeDetailsPage extends React.Component {
 
       return (
         <div>
-          <AppBar 
+          <AppBar
             title={"What's for dinner?"}
             onTitleTouchTap={this.handleTitleTouchTap}
             iconElementLeft={
@@ -37,7 +37,7 @@ class RecipeDetailsPage extends React.Component {
                     <ArrowBack />
                 </IconButton>
             }
-            style={{backgroundColor: '#0f2364'}} 
+            style={{backgroundColor: '#0f2364'}}
           />
           <p>{JSON.stringify(this.props.recipe, null, 4)}</p>
         </div>

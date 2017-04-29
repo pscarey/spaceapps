@@ -15,8 +15,9 @@ const store = createStore(reducers, compose(
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {
-  blueGrey800,
-  grey100, grey300, grey500,
+  blueGrey800, indigo900,
+  deepOrangeA400, grey100,
+  grey800, grey300, grey500,
   white, darkBlack, fullBlack
 } from 'material-ui/styles/colors';
 import { fade } from 'material-ui/utils/colorManipulator';
@@ -26,11 +27,11 @@ injectTapEventPlugin();
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: '#00008B',
-    primary2Color: '#00008B',
-    primary3Color: '#00008B',
-    accent1Color: '#FF5500',
-    accent2Color: '#262F44',
+    primary1Color: indigo900,
+    primary2Color: blueGrey800,
+    primary3Color: grey100,
+    accent1Color: deepOrangeA400,
+    accent2Color: grey800,
     accent3Color: grey500,
     pickerHeaderColor: '#f26c4f',
     textColor: darkBlack,
