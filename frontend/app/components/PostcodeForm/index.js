@@ -7,6 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { setPostcode } from '../../actions/postcode';
 import { getRecipes } from '../../actions/recipes';
 import { browserHistory } from 'react-router';
+import Card from 'material-ui/Card';
 
 class PostcodeForm extends Component {
     constructor(props) {
@@ -24,22 +25,27 @@ class PostcodeForm extends Component {
     render() {
         const { handleSubmit, pristine, reset, submitting } = this.props
         return (
-            <form onSubmit={handleSubmit(this.onPostcodeSubmit)} autoComplete="off">
-                <div style={{textAlign: 'center', display: 'block'}}>
-                    <Field 
-                        name="postcode"
-                        component={TextField}
-                        hintText="2000"
-                        floatingLabelText="Your Postcode" 
-                    /><br />
-                    <RaisedButton
-                        primary
-                        disabled={pristine || submitting}
-                        label="Show Me Recipes"
-                        type="submit"
-                    />
-                </div>
-            </form>
+            <Card style={{height:80}}>
+                <form onSubmit={handleSubmit(this.onPostcodeSubmit)} autoComplete="off">
+                    <div style={{textAlign: 'center', display: 'block'}}>
+                        <Field 
+                            name="postcode"
+                            component={TextField}
+                            hintText="2000"
+                            floatingLabelFixed
+                            floatingLabelText="Your Postcode" 
+                            style={{width: 120, marginRight: 15}}
+                        />
+                        <RaisedButton
+                            primary
+                            disabled={pristine || submitting}
+                            label="Show Recipes"
+                            type="submit"
+                            style={{width: 140, position: 'relative', top: -10}}
+                        />
+                    </div>
+                </form>
+            </Card>
         );
     }
 }

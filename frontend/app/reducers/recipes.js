@@ -15,8 +15,9 @@ const requestRecipes = (state, action) => {
 const recieveRecipes = (state, action) => {
     return updateState(state, { 
         isLoading: false,
-        recipes: action.recipes
-    });    
+        recipes: action.recipes,
+        error: action.error
+    });
 }
 
 export default function (state = initialState, action) {

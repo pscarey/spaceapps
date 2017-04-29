@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Page from '../../components/Page';
 import AppBar from 'material-ui/AppBar';
 import CircularProgress from 'material-ui/CircularProgress';
+import {GridList, GridTile} from 'material-ui/GridList';
 
 class RecipesPage extends React.Component {
   render() {
@@ -14,18 +15,26 @@ class RecipesPage extends React.Component {
         />
         {this.props.isLoading ? (
           <CircularProgress size={80} thickness={5} />
-        ) : ( 
-          tilesData.map((tile) => (
-            <GridTile
-              key={tile.img}
-              title={tile.title}
-              subtitle={<span>by <b>{tile.author}</b></span>}
-              actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
+        ) : 
+          this.props.error ? (
+            <p>Sorry, we couldn't load the recipes for your location.</p>
+          ) : ( 
+            <GridList
+              cellHeight={300}
             >
-              <img src={tile.img} />
-            </GridTile>
-          ))
-        )}
+              {this.props.recipes.map(recipe => (
+                <GridTile
+                  key={recipe.id}
+                  title={recipe.name}
+                  subtitle={recipe.description}
+                  actionIcon={<div />}
+                >
+                  <img src={'/assets/recipes/' + recipe.id} />
+                </GridTile>
+              ))}
+            </GridList>
+          )
+        }
       </div>
     );
   }

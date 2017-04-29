@@ -1,3 +1,5 @@
+import request from 'request-promise-native';
+
 export const REQUEST_RECIPES = 'recipes/REQUEST_RECIPES';
 export const RECIEVE_RECIPES = 'recipes/RECIEVE_RECIPES';
 
@@ -6,22 +8,26 @@ export const requestRecipes = postcode => ({
     postcode: postcode
 });
 
-export const recieveRecipes = recipes => ({
+export const recieveRecipes = (recipes, error) => ({
     type: RECIEVE_RECIPES,
-    recipes: recipes
+    recipes: recipes,
+    error: error
 });
 
 export function getRecipes(postcode) {
   return function (dispatch) {
     dispatch(requestRecipes(postcode))
+    
+    var options = {
+        uri: 'http://localhost:3000/recipes',
+        json: true
+    };
 
-    setTimeout(()=>{
-      // TODO replace with API call.
-      dispatch(recieveRecipes([
-        { name: 'one', id: '0', score: '80'},
-        { name: 'two', id: '0', score: '50'},
-        { name: 'three', id: '0', score: '60'},
-      ]));
-    }, 3000);
+    request(options).then(result => {
+        dispatch(recieveRecipes(result, false));
+    }).catch(error => {
+        console.log(error);
+        dispatch(recieveRecipes([], true));
+    });
   }
 }
