@@ -7,15 +7,27 @@
     "npm": ">=3.8"
   },
   "dependencies": {
+    "babel-loader": "^6.4.1",
     "babel-polyfill": "^6.23.0",
     "classnames": "^2.2.5",
+    "copy-webpack-plugin": "^4.0.1",
+    "express": "^4.15.2",
     "fastclick": "^1.0.6",
+    "file-loader": "^0.10.1",
     "history": "^4.6.1",
+    "postcss-cssnext": "^2.10.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-mdl": "^1.9.0",
-    "react-redux": "^5.0.3",
+    "react-redux": "^5.0.4",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "react-router-redux": "^4.0.8",
+    "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
+    "redux-form": "^6.6.3",
+    "redux-thunk": "^2.2.0",
+    "stream-browserify": "^2.0.1",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
@@ -74,44 +86,7 @@
     "webpack-dev-middleware": "^1.10.1",
     "webpack-hot-middleware": "^2.17.1"
   },
-  "babel": {
-    "presets": [
-      "latest",
-      "stage-1",
-      "react"
-    ],
-    "plugins": [
-      "transform-runtime"
-    ]
-  },
-  "eslintConfig": {
-    "parser": "babel-eslint",
-    "extends": "airbnb",
-    "rules": {
-      "react/jsx-filename-extension": "off",
-      "react/require-default-props": "off",
-      "import/no-extraneous-dependencies": "off"
-    },
-    "env": {
-      "browser": true
-    }
-  },
-  "stylelint": {
-    "extends": "stylelint-config-standard",
-    "rules": {
-      "string-quotes": "single"
-    }
-  },
   "scripts": {
-    "eslint": "eslint components src test tools postcss.config.js webpack.config.js",
-    "stylelint": "stylelint \"components/**/*.css\" \"src/**/*.css\"",
-    "lint": "npm run eslint && npm run stylelint",
-    "test": "mocha --compilers js:babel-register",
-    "test:watch": "mocha --compilers js:babel-register --reporter min --watch",
-    "build": "node tools/build.js",
-    "build:debug": "node tools/build.js --debug",
-    "publish": "node tools/publish.js",
-    "publish:debug": "node tools/publish.js --debug",
-    "start": "node tools/run.js"
+    "start": "webpack-dev-server --progress --history-api-fallback --hot --inline --open"
   }
 }
