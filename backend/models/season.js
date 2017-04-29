@@ -3,6 +3,11 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
   }, {
     tableName: 'season',
+    classMethods: {
+      associate(models) {
+        Season.belongsToMany(models.Ingredient, { through: 'IngredientSeason', foreignKey: 'seasonId', onDelete: 'CASCADE' });
+      },
+    },
     instanceMethods: {
       toJSON() {
         return this.dataValues;

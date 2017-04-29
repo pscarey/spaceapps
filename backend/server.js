@@ -17,13 +17,17 @@ async function start() {
                 model: models.Source,
                 as: 'sources',
               },
+              {
+                model: models.Season,
+                as: 'seasons',
+              },
             ],
           },
         ]
       },
     ],
   });
-  console.log('Recipe', res[0].id, 'RecipeItems Name', res[0].recipeItems[0].name, 'Ingredient ', res[0].recipeItems[0].ingredient.name, 'Source', res[0].recipeItems[0].ingredient.sources[0].name );
+  console.log('Recipe', res[0].id, 'RecipeItems Name', res[0].recipeItems[0].name, 'Ingredient ', res[0].recipeItems[0].ingredient.name, 'Source', res[0].recipeItems[0].ingredient.sources[0].name, 'Season', res[0].recipeItems[0].ingredient.seasons[0].name );
 }
 start();
 const res = models.Ingredient.findAll().then((res) => {
