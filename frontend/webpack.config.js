@@ -3,6 +3,9 @@ const cssNext = require('postcss-cssnext');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+	node: {
+		fs: "empty"
+	},
 	entry: [
 		'./app/index.js'
 	],
@@ -21,6 +24,9 @@ module.exports = {
 		}, {
 			test: /\.(png|jpg)$/,
 			loader: 'url-loader?limit=8192'
+		}, { 
+			test: /\.json$/, 
+			loader: 'json-loader' 
 		}
 		]
 	},
