@@ -9,7 +9,7 @@
  */
 
 import React, { PropTypes } from 'react';
-import Layout from '../../components/Layout';
+import Page from '../../components/Page';
 
 class HomePage extends React.Component {
   static propTypes = {
@@ -21,7 +21,7 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div>
+      <Page>
         <div style={{height: 50}}/>
         <h1 style={{width: '100%', textAlign: 'center', fontWeight:400}}>Whats for dinner?</h1>
         <ul>
@@ -29,7 +29,7 @@ class HomePage extends React.Component {
         <p>
           <br /><br />
         </p>
-      </div>
+      </Page>
     );
   }
 

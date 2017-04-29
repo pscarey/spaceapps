@@ -9,12 +9,10 @@
  */
 
 import React from 'react';
-import Navigation from './Navigation';
 import Link from '../Link';
-import s from './Header.css';
+import Footer from '../Footer';
 
-class Header extends React.Component {
-
+class Page extends React.Component {
   componentDidMount() {
     window.componentHandler.upgradeElement(this.root);
   }
@@ -25,18 +23,14 @@ class Header extends React.Component {
 
   render() {
     return (
-      <Header />
-
-      <Footer />      
+      <div>
+        <div style={{minHeight: '100%', height: '100%'}}>
+          {this.props.children}
+        </div>   
+        <Footer />   
+      </div>
     );
   }
-
 }
 
-export default Header;
-
-
-
-
-
-import Header from './Header';
+export default Page;
