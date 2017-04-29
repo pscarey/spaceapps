@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "vms",
-    "password": "passw0rd",
+    "username": "whats-for-dinner",
+    "password": "pass",
     "database": "whats-for-dinner",
     "host": "127.0.0.1",
     "dialect": "postgres"
