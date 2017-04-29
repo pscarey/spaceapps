@@ -30,14 +30,13 @@ class HomePage extends React.Component {
   }
 
   onPostcodeSubmit(values) {
-    const postcode = values.postcode;
-    console.log(postcode);
+    console.log(values.postcode);
     browserHistory.push('/recipes');
   };
 
   render() {
     return (
-      <Page>
+      <div>
         <div style={{height: 100}}/>
 
         <BSMiddle>
@@ -60,12 +59,14 @@ class HomePage extends React.Component {
 
         <Spacer height="50px" />
         <BSMiddle>
+          <PostcodeForm 
+            onSubmit={this.onPostcodeSubmit}
+          />
         </BSMiddle>
 
-        <RaisedButton label="Recipes" onTouchTap={this.onPostcodeSubmit} />
         <Spacer height="150px" />
 
-      </Page>
+      </div>
     );
   }
 }

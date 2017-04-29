@@ -4,9 +4,9 @@ import Page from '../../components/Page';
 class RecipesPage extends React.Component {
   render() {
     return (
-      <Page>
+      <div>
           Recipes page
-      </Page>
+      </div>
     );
   }
 }
