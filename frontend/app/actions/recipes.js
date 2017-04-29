@@ -3,6 +3,7 @@ import * as querystring from 'querystring';
 
 export const REQUEST_RECIPES = 'recipes/REQUEST_RECIPES';
 export const RECIEVE_RECIPES = 'recipes/RECIEVE_RECIPES';
+export const SELECT_RECIPE = 'recipes/SELECT_RECIPE';
 
 export const requestRecipes = (postcode, time) => ({
     type: REQUEST_RECIPES,
@@ -14,6 +15,11 @@ export const recieveRecipes = (recipes, error) => ({
     type: RECIEVE_RECIPES,
     recipes: recipes,
     error: error
+});
+
+export const selectRecipe = (recipe) => ({
+    type: SELECT_RECIPE,
+    recipe: recipe
 });
 
 export function getRecipes(postcode, time) {

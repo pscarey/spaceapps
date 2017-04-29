@@ -46,6 +46,7 @@ const muiTheme = getMuiTheme({
 import Page from './components/Page';
 import HomePage from './components/HomePage'
 import RecipesPage from './components/RecipesPage'
+import RecipeDetailsPage from './components/RecipeDetailsPage';
 
 ReactDom.render(
     <MuiThemeProvider muiTheme={muiTheme}>
@@ -55,6 +56,7 @@ ReactDom.render(
                     <IndexRedirect to="home" />
                     <Route path="home" component={HomePage} />
                     <Route path="recipes" component={RecipesPage} />
+                    <Route path="recipe-details" component={RecipeDetailsPage} />
                 </Route>
                 <Redirect from="*" to="/" />
             </Router>

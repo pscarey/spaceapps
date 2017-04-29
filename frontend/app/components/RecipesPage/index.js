@@ -9,15 +9,24 @@ import PostcodeForm from '../PostcodeForm';
 import { Row, Col } from 'react-bootstrap';
 import Dimensions from 'react-dimensions'
 import Card from 'material-ui/Card';
+import { selectRecipe } from '../../actions/recipes';
 
 class RecipesPage extends React.Component {
     constructor(props) {
       super(props);
-      this.handleTouchTap = this.handleTouchTap.bind(this);
+      this.handleTitleTouchTap = this.handleTitleTouchTap.bind(this);
+      this.handleGripTouchTap = this.handleGripTouchTap.bind(this);
     }
 
-    handleTouchTap() {
+    handleTitleTouchTap() {
       browserHistory.push('/');
+    }
+
+    handleGripTouchTap(recipe) {
+      return () => {
+        this.props.dispatch(selectRecipe(recipe));
+        browserHistory.push('/recipe-details');
+      };
     }
 
     render() {
@@ -28,7 +37,7 @@ class RecipesPage extends React.Component {
         <div>
           <AppBar 
             title={"What's for dinner?"}
-            onTitleTouchTap={this.handleTouchTap}
+            onTitleTouchTap={this.handleTitleTouchTap}
             iconElementLeft={<div />}
             style={{backgroundColor: '#0f2364'}} 
           />
@@ -80,6 +89,7 @@ class RecipesPage extends React.Component {
                                     title={recipe.name}
                                     subtitle={recipe.description}
                                     actionIcon={<div />}
+                                    onTouchTap={this.handleGripTouchTap(recipe)}
                                   >
                                     <img src={'/assets/recipes/' + recipe.id} />
                                   </GridTile>
