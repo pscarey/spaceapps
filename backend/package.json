@@ -1,0 +1,31 @@
+{
+  "name": "whats-for-dinner",
+  "version": "1.0.0",
+  "description": "mapping sustainability - rating your food",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pscarey/spaceapps.git"
+  },
+  "keywords": [
+    "food",
+    "sustainability",
+    "spaceapps",
+    "hackathon"
+  ],
+  "author": "collective sydney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pscarey/spaceapps/issues"
+  },
+  "homepage": "https://github.com/pscarey/spaceapps#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "pg": "^6.1.5",
+    "sequelize": "^3.30.4",
+    "sequelize-cli": "^2.7.0"
+  }
+}
