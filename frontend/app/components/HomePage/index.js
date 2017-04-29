@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Page from '../../components/Page';
+import Feature from './feature.js';
 import { Row, Col } from 'react-bootstrap';
 import PostcodeForm from '../PostcodeForm';
 import { connect } from 'react-redux';
@@ -13,7 +14,7 @@ const BSMiddle = props => {
   return (
     <Row>
       <Col xs={2} md={4} />
-      <Col xs={8} md={4}> 
+      <Col xs={8} md={4}>
         {props.children}
       </Col>
       <Col xs={2} md={4} />
@@ -36,10 +37,12 @@ class HomePage extends React.Component {
         </BSMiddle>
 
         <Spacer height="100px" />
-        <BSMiddle>Point 1</BSMiddle>
+        <BSMiddle>
+          <h3>It's time for us to do something about food waste!</h3>
+        </BSMiddle>
 
         <Spacer height="50px" />
-        <BSMiddle>Point 2</BSMiddle>
+        <BSMiddle><Feature /></BSMiddle>
 
         <Spacer height="50px" />
         <BSMiddle>Point 3</BSMiddle>
@@ -49,7 +52,7 @@ class HomePage extends React.Component {
 
         <Spacer height="50px" />
         <BSMiddle>
-          <PostcodeForm 
+          <PostcodeForm
             onSubmit={this.onPostcodeSubmit}
           />
         </BSMiddle>
