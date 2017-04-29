@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Footer from '../Footer';
 
 class Page extends React.Component {
@@ -6,7 +7,7 @@ class Page extends React.Component {
     return (
       <div>
         <div style={{minHeight: '100%', height: '100%'}}>
-          {this.props.children}
+          { this.props.children }
         </div>   
         <Footer />   
       </div>
@@ -14,4 +15,4 @@ class Page extends React.Component {
   }
 }
 
-export default Page;
+export default connect()(Page);

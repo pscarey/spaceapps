@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Page from '../../components/Page';
 import { Row, Col } from 'react-bootstrap';
 import PostcodeForm from '../PostcodeForm';
-import { browserHistory } from 'react-router';
+import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const ListPoint = props => (
@@ -24,16 +24,6 @@ const BSMiddle = props => {
 const Spacer = props => { return <div style={{height: props.height}} />};
 
 class HomePage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onPostcodeSubmit = this.onPostcodeSubmit.bind(this);
-  }
-
-  onPostcodeSubmit(values) {
-    console.log(values.postcode);
-    browserHistory.push('/recipes');
-  };
-
   render() {
     return (
       <div>
@@ -71,4 +61,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage;
+export default connect()(HomePage);
