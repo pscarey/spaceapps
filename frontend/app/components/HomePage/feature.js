@@ -13,7 +13,7 @@ class Feature extends React.Component {
     return (
       <div style={{fontSize: '1.5em', lineHeight: '30px'}}>
         <Spacer height="40px" />
-        <div style={imgStyle}><img src="assets/icons/Pig.svg" width={60} height={60}/></div>
+        <div style={imgStyle}><img src="assets/icons/Cow.svg" width={60} height={60}/></div>
         <div>Nearly 40% of methane gas emissions comes from farm animals</div>
 
         <Spacer height="40px" />
@@ -25,14 +25,14 @@ class Feature extends React.Component {
         <div>At least 20% of our <strong>carbon footprint</strong> comes from the food we eat every day</div>
 
         <Spacer height="40px" />
-        <img src="assets/icons/Food.svg" width={60} height={60}/>
+        <img src="assets/icons/Trash.svg" width={60} height={60}/>
         <div>Up to 40% of the average household bin is <strong>food</strong></div>
 
         <Spacer height="40px" />
         <div>
         The right food to eat depends on where you live, seasons, food supply and shortages, to name a few factors. It is now easy to make the right choice and lower your carbon foodprint with our food comparison and recipe finder tool!
 
-        <h2>Take the first steps in making our planet more sustainable by entering your postcode to find out more...</h2>
+        <h2>Want to find out more about the food you consume and how it impacts our planet? Take the first steps in making our planet more sustainable by entering your postcode to find out more...</h2>
         </div>
       </div>
     )
