@@ -27,6 +27,13 @@ class Feature extends React.Component {
         <Spacer height="40px" />
         <img src="assets/icons/Food.svg" width={60} height={60}/>
         <div>Up to 40% of the average household bin is <strong>food</strong></div>
+
+        <Spacer height="40px" />
+        <div>
+        The right food to eat depends on where you live, seasons, food supply and shortages, to name a few factors. It is now easy to make the right choice and lower your carbon foodprint with our food comparison and recipe finder tool!
+
+        <h2>Take the first steps in making our planet more sustainable by entering your postcode to find out more...</h2>
+        </div>
       </div>
     )
   }

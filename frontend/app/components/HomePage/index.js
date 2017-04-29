@@ -35,10 +35,9 @@ const Spacer = props => { return <div style={{height: props.height}} />};
 class HomePage extends React.Component {
   render() {
     return (
-      <div style={{margin: '0'}}>
-        <div style={{width:'100%', height: 100, backgroundColor: '#0F2364'}}/>
+      <div style={{margin: '0', width:'100%'}}>
 
-        <BSMiddle style={{backgroundColor: '#0F2364', height: 200}}>
+        <BSMiddle style={{backgroundColor: '#0F2364', height: 250}}>
           <h1 style={{width: '100%', textAlign: 'center', fontWeight: 600, fontSize: '4em', color: white}}>
             WHAT'S FOR DINNER?
           </h1>
@@ -63,7 +62,7 @@ class HomePage extends React.Component {
         <Spacer height="100px" />
 
         <Spacer height="50px" />
-        <BSMiddle style={{backgroundColor: deepOrangeA400, margin: '0', padding: '10px', textAlign: 'center', height: 100}}>
+        <BSMiddle style={{backgroundColor: deepOrangeA400, margin: '0', padding: '10px', textAlign: 'center', height: 120}}>
           <Tagline />
         </BSMiddle>
 
