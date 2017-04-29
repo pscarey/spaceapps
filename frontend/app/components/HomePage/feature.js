@@ -1,43 +1,39 @@
 import React, { PropTypes } from 'react';
-import { Row, Col } from 'react-bootstrap';
-
-// const BSMiddle = props => {
-//   return (
-//     <Row>
-//       <Col xs={2} md={4} />
-//       <Col xs={8} md={4}>
-//         {props.children}
-//       </Col>
-//       <Col xs={2} md={4} />
-//     </Row>
-//   );
-// };
 
 const Spacer = props => { return <div style={{height: props.height}} />};
 
-
 class Feature extends React.Component {
   render(){
-    let background = "http://www.foodwise.com.au/wp-content/uploads/2012/08/Background_ChoppingBoard2.jpg"
-    let style = {
-      fontSize: '1.5em',
-      lineHeight: '30px'
-      // backgroundImage: `url(${background})`
+    let imgStyle = {
+      justifyContent: 'center',
+      alignItems: 'center',
+      margin: '0 auto'
     };
 
     return (
-      <div style={style}>
+      <div style={{fontSize: '1.5em', lineHeight: '30px'}}>
         <Spacer height="40px" />
-        <div>Aussies throw out $8 billion of edible food every year</div>
+        <div style={imgStyle}><img src="assets/icons/Pig.svg" width={60} height={60}/></div>
+        <div>Nearly 40% of methane gas emissions comes from farm animals</div>
 
         <Spacer height="40px" />
+        <img src="assets/icons/Coins.svg" width={60} height={60} style={imgStyle}/>
         <div>$1,036 of food is thrown away by the average Australian household every year</div>
 
         <Spacer height="40px" />
-        <div>Australians discard up to 20% of the food they purchase. This equates to 1 out of every 5 bags of groceries they buy</div>
+        <img src="assets/icons/Deliver.svg" width={60} height={60}/>
+        <div>At least 20% of our <strong>carbon footprint</strong> comes from the food we eat every day</div>
 
         <Spacer height="40px" />
-        <div>Up to 40% of the average household bin is FOOD</div>
+        <img src="assets/icons/Food.svg" width={60} height={60}/>
+        <div>Up to 40% of the average household bin is <strong>food</strong></div>
+
+        <Spacer height="40px" />
+        <div>
+        The right food to eat depends on where you live, seasons, food supply and shortages, to name a few factors. It is now easy to make the right choice and lower your carbon foodprint with our food comparison and recipe finder tool!
+
+        <h2>Take the first steps in making our planet more sustainable by entering your postcode to find out more...</h2>
+        </div>
       </div>
     )
   }
