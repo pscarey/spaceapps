@@ -1,37 +1,61 @@
 import React, { PropTypes } from 'react';
+import Card from 'material-ui/Card';
 
 const Spacer = props => { return <div style={{height: props.height}} />};
 
+const imgStyle = {
+  textAlign: 'center',
+  margin: '0 auto 5px auto'
+};
+
+const Point = props => {
+  return (
+      <Card style={{padding: 20, textAlign: 'center', lineHeight: '30px', margin: '0 40px 0 40px'}}>
+        <div style={imgStyle}><img src={"assets/icons/" + props.icon + ".svg"} width={60} height={60}/></div>
+        <div style={{fontSize: '1.2em', fontWeight: '200'}}>{props.children}</div>
+      </Card>
+  );
+}
+
 class Feature extends React.Component {
   render(){
-    let imgStyle = {
-      textAlign: 'center',
-      margin: '0 auto 5px auto'
-    };
 
     return (
-      <div style={{fontSize: '1.5em', lineHeight: '30px'}}>
+      <div style={{}}>
         <Spacer height="40px" />
-        <div style={imgStyle}><img src="assets/icons/Cow.svg" width={60} height={60}/></div>
-        <div>Nearly 40% of methane gas emissions comes from farm animals</div>
+        <Point icon="Coins">
+          $1,036 of food is thrown away by the average Australian household every year.
+        </Point>
+        
+        <Spacer height="40px" />
+        <Point icon="Cow">
+          Nearly 40% of methane gas emissions comes from farm animals
+        </Point>
 
         <Spacer height="40px" />
-        <div style={imgStyle}><img src="assets/icons/Coins.svg" width={60} height={60} style={imgStyle}/></div>
-        <div>$1,036 of food is thrown away by the average Australian household every year</div>
+        <Point icon="Deliver">
+          At least 20% of our <strong>carbon footprint</strong> comes from the food we eat every day.
+        </Point>
 
         <Spacer height="40px" />
-        <div style={imgStyle}><img src="assets/icons/Deliver.svg" width={60} height={60}/></div>
-        <div>At least 20% of our <strong>carbon footprint</strong> comes from the food we eat every day</div>
+        <Point icon="Trash">
+          Up to 40% of the average household bin is <strong>food</strong>.
+        </Point>
 
         <Spacer height="40px" />
-        <div style={imgStyle}><img src="assets/icons/Trash.svg" width={60} height={60}/></div>
-        <div>Up to 40% of the average household bin is <strong>food</strong></div>
-
-        <Spacer height="40px" />
-        <div>
-        The right food to eat depends on where you live, seasons, food supply and shortages, to name a few factors. It is now easy to make the right choice and lower your carbon foodprint with our food comparison and recipe finder tool!
-
-        <h2>Want to find out more about the food you consume and how it impacts our planet? Take the first steps in making our planet more sustainable by entering your postcode to find out more...</h2>
+        <div style={{textAlign: 'center', margin: '0 60px 0 60px'}}>
+        <h4 style={{fontWeight: 400}}>
+          It's hard to know exactly what goes into your food, and sustainable food depends on where you live, seasons, food supply and shortages.
+        </h4><br />
+        <h4 style={{fontWeight: 400}}>
+          Make the right choice and <strong>lower your carbon foodprint</strong> with our recipe finder tool!
+        </h4><br />
+        <div style={{textAlign: 'center', margin: 10}}>
+          <img width="150" height="150" src="/assets/icons/Globe.svg"/>
+        </div>
+        <h3 style={{fontWeight: 400}}>
+          Enter your postcode to take the first step in making our planet more sustainable:
+        </h3>
         </div>
       </div>
     )
