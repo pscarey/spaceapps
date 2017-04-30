@@ -25,7 +25,12 @@
   },
   "homepage": "https://github.com/pscarey/spaceapps#readme",
   "dependencies": {
+    "@google/maps": "^0.3.1",
+    "date-season": "0.0.2",
     "express": "^4.15.2",
+    "geodist": "^0.2.1",
+    "google-maps-api": "^2.0.1",
+    "gps-distance": "0.0.4",
     "pg": "^6.1.5",
     "sequelize": "^3.30.4",
     "sequelize-cli": "^2.7.0"

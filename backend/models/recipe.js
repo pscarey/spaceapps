@@ -14,6 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     instanceMethods: {
       toJSON() {
+        this.dataValues.ratings = this.ratings;
+        this.dataValues.totalRating = this.totalRating;
         return this.dataValues;
       },
     },
