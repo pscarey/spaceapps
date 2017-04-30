@@ -1,4 +1,4 @@
-const apiKey = process.env.MAPS_API_KEY;
+const apiKey = 'AIzaSyDXCE0TtYiYr7iEe1IttCS-0b3EK5FHeJ8';
 console.log('Initiating Maps');
 var googleMapsClient = require('@google/maps').createClient({
   key: apiKey
