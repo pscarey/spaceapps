@@ -12,6 +12,7 @@ import Card from 'material-ui/Card';
 import { selectRecipe } from '../../actions/recipes';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import MarketsPrompt from '../MarketsPrompt';
 
 class RecipesPage extends React.Component {
     constructor(props) {
@@ -131,22 +132,7 @@ class RecipesPage extends React.Component {
                   </Col>
                   <Col xs={0} sm={1} md={2}/>
                 </Row>
-                <Row>
-                  <Col xs={1} sm={3} md={4}/>
-                  <Col xs={10} sm={6} md={4}>
-                    <Card style={{width: '100%', margin: '50px auto 50px auto', padding: '20px 25px 10px 25px'}}>
-                      <div style={{textAlign: 'center', margin: '0 auto 5px auto', width: 300}}> 
-                        <img src="assets/icons/Pig.svg" width={80} height={80}/> 
-                        <img src="assets/icons/Chicken.svg" width={80} height={80}/> 
-                        <img src="assets/icons/Food.svg" width={80} height={80}/> 
-                      </div>
-                      <p>Why not check out your local farmers markets? 
-                      It's the best way to get cheap, sustainable produce.
-                      Find out more <a href="http://sydneymarkets.com.au/">here!</a></p>
-                    </Card>
-                  </Col>
-                  <Col xs={1} sm={3} md={4}/>
-                </Row>
+                <MarketsPrompt />
                 <Dialog
                   title="Select Postcode"
                   actions={[      

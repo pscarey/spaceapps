@@ -8,7 +8,8 @@ import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 import { Row, Col } from 'react-bootstrap';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import Dimensions from 'react-dimensions'
-
+import StarRatingComponent from 'react-star-rating-component';
+import MarketsPrompt from '../MarketsPrompt';
 
 const scoreDescriptions = [
     'Entirely unsustainable - avoid!',
@@ -18,11 +19,50 @@ const scoreDescriptions = [
     'As good as it gets - one of the most sustainable recipes.'
 ];
 
-const niceFoodDescriptions = {
-    
+const metricDescriptions = {
+    co2Rating : 'CO2 Emissions',
+    waterRating : 'Water Usage',
+    energyRating : 'Energy Usage',
+    daysToProduceRating : 'Production Time',
+    distanceRating : 'Transportation Distance',
+    seasonRating : 'Seasonality'
 };
 
+const metricIcons = {
+    co2Rating : 'Factory',
+    waterRating : 'Water',
+    energyRating : 'Light',
+    daysToProduceRating : 'Clock',
+    distanceRating : 'Deliver',
+    seasonRating : 'Summer'
+};
 
+const Metric = props => {
+    console.log(props);
+    return (
+        <div
+            key={props.name}
+            style={{width: 150, height: 160, paddingTop: 10, display: 'inline-block', textAlign: 'center'}}
+        >
+            <img width={60} height={60} src={'/assets/icons/' + metricIcons[props.name] + '.svg'}/>
+            <p
+              style={{fontSize: '20px', textAlign: 'center', width: '100px', fontWeight: 200, width: 150}}
+            >
+              {metricDescriptions[props.name]}
+            </p>
+            <StarRatingComponent 
+                name="rating" 
+                editing={false}
+                renderStarIcon={(index, value) => {
+                    return <img width="25" src={index <= value ? '/assets/icons/Star.svg' : '/assets/icons/StarEmpty.svg'} />;
+                }}
+                renderStarIconHalf={() => <img width="25" src="/assets/icons/StarHalf.svg"/>}
+                starCount={5}
+                value={props.value}
+            />
+        </div>
+    );
+};
 
 class RecipeDetailsPage extends React.Component {
     constructor(props) {
@@ -79,30 +119,50 @@ class RecipeDetailsPage extends React.Component {
                         <img src={'assets/images/' + this.props.recipe.id + '.jpg'} />
                     </CardMedia>
                     <CardTitle 
-                        title="Rating: "
-                    />
-                    <CardText>
-                        {Object.keys(this.props.recipe.ratings || {}).map((key, index) => {
-                            const name = key;
-                            const value = this.props.recipe.ratings[name];
-                            return (
-                                <p> 
-                                    {name} 
-                                </p>
-                            );
-                        })}
-                    </CardText>
-                    <CardTitle 
                         title="Recipe: "
                     />
                     <CardText>
                         <p>{this.props.recipe.description}</p>
                     </CardText>
+                    <CardTitle 
+                        title="Rating Breakdown: "
+                    />
+                    <CardText>
+                        <div
+                            style={{textAlign: 'center'}}
+                        >
+                            {Object.keys(this.props.recipe.ratings || {
+                                co2Rating : 0,
+                                waterRating : 1,
+                                energyRating : 2,
+                                daysToProduceRating : 3,
+                                distanceRating : 4,
+                                seasonRating : 5
+                            }).map((key, index) => {
+                                const obj = {
+                                    co2Rating : 0,
+                                    waterRating : 1,
+                                    energyRating : 2,
+                                    daysToProduceRating : 3,
+                                    distanceRating : 4,
+                                    seasonRating : 5
+                                };
+
+                                const name = key;
+                                const value = obj[key];
+                                
+                                return Metric({
+                                    name: name,
+                                    value: value
+                                });
+                            })}
+                        </div>
+                    </CardText>
                 </Card>
             </Col>
             <Col xs={0} sm={1} md={2}/>
           </Row>
-          <div style={{height: 50}} />
+        <MarketsPrompt />
         </div>
       );
     }
