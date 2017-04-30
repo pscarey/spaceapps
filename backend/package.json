@@ -4,7 +4,6 @@
   "description": "mapping sustainability - rating your food",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
     "migrate": "node_modules/.bin/sequelize db:migrate",
     "test": "test"
   },
