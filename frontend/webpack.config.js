@@ -38,7 +38,7 @@ module.exports = {
 			{ from: './app/index.css' },
 			{ from: './server.js' },
 			{ from: './package.json' },
-			{ from: './node_modules/express' }
+			{ from: './node_modules/express', to: 'node_modules/express' }
 		])
 	],
 	devtool: 'eval'
