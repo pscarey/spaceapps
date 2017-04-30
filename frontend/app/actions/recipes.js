@@ -22,15 +22,19 @@ export const selectRecipe = (recipe) => ({
     recipe: recipe
 });
 
-export function getRecipes(postcode, time) {
+export function getRecipes(postcode, date) {
   return function (dispatch) {
-    dispatch(requestRecipes(postcode, time));
-    
-    var options = {
-        uri: 'https://nasa-whats-for-dinner.herokuapp.com/recipes?' + querystring.stringify({
+    dispatch(requestRecipes(postcode, date));
+
+    const uri = 'https://nasa-whats-for-dinner.herokuapp.com/recipes?' + querystring.stringify({
           postcode: postcode,
-          time: time
-        }),
+          date: date
+    });
+
+    console.log(uri);
+
+    var options = {
+        uri: uri,
         json: true
     };
 

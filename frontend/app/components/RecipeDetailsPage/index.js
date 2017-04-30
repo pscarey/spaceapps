@@ -38,7 +38,6 @@ const metricIcons = {
 };
 
 const Metric = props => {
-    console.log(props);
     return (
         <div
             key={props.name}
@@ -111,7 +110,7 @@ class RecipeDetailsPage extends React.Component {
                     <CardMedia
                      overlay={
                          <CardTitle 
-                            title={'Eco Score: ' + (this.props.recipe.totalRating || 0) + "/5"}
+                            title={'Eco Score: ' + (this.props.recipe.totalRating || 0).toFixed(1) + "/5"}
                         />
                      }
                      style={{height: (this.props.containerWidth*0.5 > 400 ? 400 : this.props.containerWidth*0.5 ), overflow: 'hidden'}}

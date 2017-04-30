@@ -117,7 +117,7 @@ class RecipesPage extends React.Component {
                                   <GridTile
                                     key={recipe.id}
                                     title={recipe.name}
-                                    subtitle={'Eco Score: ' + (recipe.totalRating || 0) + "/5"}
+                                    subtitle={'Eco Score: ' + (recipe.totalRating || 0).toFixed(1) + "/5"}
                                     actionIcon={<div />}
                                     onTouchTap={this.handleGripTouchTap(recipe)}
                                   >
