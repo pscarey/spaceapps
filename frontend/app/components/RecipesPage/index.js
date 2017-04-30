@@ -71,6 +71,7 @@ class RecipesPage extends React.Component {
                               label="Select Postcode"
                               primary
                               onTouchTap={this.handleOpenTouchTap}
+                              style={{marginBottom: 5}}
                           />
                         </div>
                       ) : (
@@ -83,6 +84,7 @@ class RecipesPage extends React.Component {
                               label="Change Postcode"
                               primary
                               onTouchTap={this.handleOpenTouchTap}
+                              style={{marginBottom: 5}}
                           />
                         </div>
                       )}

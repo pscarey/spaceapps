@@ -42,7 +42,7 @@ class PostcodeForm extends Component {
     onPostcodeSubmit(values) {
         console.log(values.postcode);
         this.props.dispatch(setPostcode(values.postcode));
-        this.props.dispatch(getRecipes(values.postcode));
+        this.props.dispatch(getRecipes(values.postcode, Date.now().toString()));
         browserHistory.push('/recipes');
         if (this.props.onSubmitComplete) {
             this.props.onSubmitComplete();

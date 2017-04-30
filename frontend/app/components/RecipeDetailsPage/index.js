@@ -5,6 +5,9 @@ import AppBar from 'material-ui/AppBar';
 import { browserHistory } from 'react-router';
 import IconButton from 'material-ui/IconButton';
 import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
+import { Row, Col } from 'react-bootstrap';
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import Dimensions from 'react-dimensions'
 
 class RecipeDetailsPage extends React.Component {
     constructor(props) {
@@ -25,6 +28,14 @@ class RecipeDetailsPage extends React.Component {
       const isError = this.props.error;
       const isEmpty = this.props.recipes === undefined;
 
+      const scoreDescriptions = [
+          'Entirely unsustainable - avoid!',
+          'OK occasionally, but not part of your weekly shop!',
+          'Good as a treat, once or twice a week.',
+          'This meal is great for the environment - make it a staple!',
+          'As good as it gets - one of the most sustainable recipes.'
+      ];
+
       return (
         <div>
           <AppBar
@@ -39,7 +50,41 @@ class RecipeDetailsPage extends React.Component {
             }
             style={{backgroundColor: '#0f2364'}}
           />
-          <p>{JSON.stringify(this.props.recipe, null, 4)}</p>
+          <Row>
+            <Col xs={0} sm={1} md={2}/>
+            <Col xs={12} sm={10} md={8}>
+                <Card style={{margin: 20}}>
+                    <CardHeader
+                        title={this.props.recipe.name}
+                        subtitle={this.props.recipe.description}
+                        />
+                    <CardMedia
+                     overlay={
+                         <CardTitle 
+                            title={"Eco Score: " + (this.props.recipe.totalRating || 0) + "/5"}
+                            subtitle={scoreDescriptions[Math.round(this.props.recipe.totalRating || 0)]}
+                        />
+                     }
+                     style={{height: this.props.containerWidth*6/12}}
+                    >
+                        <img src="images/nature-600-337.jpg" />
+                    </CardMedia>
+                    <CardTitle 
+                        title="Recipe rating breakdown: "
+                    />
+                    <CardText>
+                        <p>Icons etc</p>
+                    </CardText>
+                    <CardTitle 
+                        title="Recipe: "
+                    />
+                    <CardText>
+                        <p>{JSON.stringify(this.props.recipe, null, 4)}</p>
+                    </CardText>
+                </Card>
+            </Col>
+            <Col xs={0} sm={1} md={2}/>
+          </Row>
         </div>
       );
     }
@@ -51,4 +96,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(RecipeDetailsPage);
+export default connect(mapStateToProps)(Dimensions()(RecipeDetailsPage));
