@@ -27,7 +27,7 @@ export function getRecipes(postcode, time) {
     dispatch(requestRecipes(postcode, time));
     
     var options = {
-        uri: 'http://localhost:3000/recipes?' + querystring.stringify({
+        uri: 'http://nasa-whats-for-dinner.herokuapp.com/recipes?' + querystring.stringify({
           postcode: postcode,
           time: time
         }),

@@ -35,7 +35,10 @@ module.exports = {
             { from: './app/index.html' },
 			{ from: './app/favicon.png' },
 			{ from: './app/assets', to: 'assets' },
-			{ from: './app/index.css' }
+			{ from: './app/index.css' },
+			{ from: './server.js' },
+			{ from: './package.json' },
+			{ from: './node_modules/express' }
 		])
 	],
 	devtool: 'eval'
