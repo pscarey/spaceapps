@@ -114,7 +114,7 @@ class RecipeDetailsPage extends React.Component {
                             title={'Eco Score: ' + (this.props.recipe.totalRating || 0) + "/5"}
                         />
                      }
-                     style={{height: this.props.containerWidth*6/12, overflow: 'hidden'}}
+                     style={{height: (this.props.containerWidth*0.5 > 400 ? 400 : this.props.containerWidth*0.5 ), overflow: 'hidden'}}
                     >
                         <img src={'assets/images/' + this.props.recipe.id + '.jpg'} />
                     </CardMedia>
@@ -122,7 +122,7 @@ class RecipeDetailsPage extends React.Component {
                         title="Recipe: "
                     />
                     <CardText>
-                        <p>{this.props.recipe.description}</p>
+                        <p dangerouslySetInnerHTML={{__html: this.props.recipe.description}} /> {/*XSS Vuln.*/}
                     </CardText>
                     <CardTitle 
                         title="Rating Breakdown: "
@@ -131,25 +131,9 @@ class RecipeDetailsPage extends React.Component {
                         <div
                             style={{textAlign: 'center'}}
                         >
-                            {Object.keys(this.props.recipe.ratings || {
-                                co2Rating : 0,
-                                waterRating : 1,
-                                energyRating : 2,
-                                daysToProduceRating : 3,
-                                distanceRating : 4,
-                                seasonRating : 5
-                            }).map((key, index) => {
-                                const obj = {
-                                    co2Rating : 0,
-                                    waterRating : 1,
-                                    energyRating : 2,
-                                    daysToProduceRating : 3,
-                                    distanceRating : 4,
-                                    seasonRating : 5
-                                };
-
+                            {Object.keys(this.props.recipe.ratings || {}).map((key, index) => {
                                 const name = key;
-                                const value = obj[key];
+                                const value = this.props.recipe.ratings[key];
                                 
                                 return Metric({
                                     name: name,
@@ -170,7 +154,9 @@ class RecipeDetailsPage extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    recipe: state.recipes.currentRecipe
+    recipe: state.recipes.currentRecipe || {
+        description: ""
+    }
   };
 }
 

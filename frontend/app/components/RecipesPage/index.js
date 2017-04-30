@@ -78,7 +78,7 @@ class RecipesPage extends React.Component {
                       ) : (
                         <div>
                           <h3><strong>Awesome!</strong></h3>
-                          <h4>Here are your friendly recipes:</h4>
+                          <h4>Here are your recipes:</h4>
                           <p>Each one has an eco score based on your location, the time of year, and the lifecycle of the ingredients. Pick a recipe to find out more about what goes into it.</p>
                           <p><strong>Start making better food choices today!</strong></p>
                           <FlatButton
