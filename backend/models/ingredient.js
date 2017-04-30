@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     calories: DataTypes.DOUBLE,
     daysToProduce: DataTypes.INTEGER,
+    water: DataTypes.DOUBLE,
     energyUsedToProduce: DataTypes.INTEGER,
     co2: DataTypes.DOUBLE,
   }, {

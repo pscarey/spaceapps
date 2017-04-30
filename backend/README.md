@@ -17,5 +17,10 @@
   Create DB:
     createdb whats-for-dinner
 3) Migrate schema executing: npm run migrate
-4) Start server
+4) Set Google Maps API KEY.
+  Create a google maps api key here:
+    https://console.developers.google.com/apis
+  Set the environment value like:
+    export MAPS_API_KEY=%your api key%
+5) Start server
 Backend of the app.
