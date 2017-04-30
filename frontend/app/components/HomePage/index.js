@@ -37,7 +37,7 @@ class HomePage extends React.Component {
       <div style={{margin: '0', width:'100%'}}>
 
         <BSMiddle style={{backgroundColor: '#0F2364', height: 250}}>
-          <h1 style={{width: '100%', textAlign: 'center', fontWeight: 600, fontSize: '4em', color: white}}>
+          <h1 style={{width: '100%', textAlign: 'center', fontWeight: 600, fontSize: '4em', color: white, lineHeight: '120px'}}>
             WHAT'S FOR DINNER?
           </h1>
         </BSMiddle>
