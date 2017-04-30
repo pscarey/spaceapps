@@ -9,6 +9,21 @@ import { Row, Col } from 'react-bootstrap';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import Dimensions from 'react-dimensions'
 
+
+const scoreDescriptions = [
+    'Entirely unsustainable - avoid!',
+    'OK occasionally, but not part of your weekly shop!',
+    'Good as a treat, once or twice a week.',
+    'This meal is great for the environment - make it a staple!',
+    'As good as it gets - one of the most sustainable recipes.'
+];
+
+const niceFoodDescriptions = {
+    
+};
+
+
+
 class RecipeDetailsPage extends React.Component {
     constructor(props) {
       super(props);
@@ -28,14 +43,6 @@ class RecipeDetailsPage extends React.Component {
       const isError = this.props.error;
       const isEmpty = this.props.recipes === undefined;
 
-      const scoreDescriptions = [
-          'Entirely unsustainable - avoid!',
-          'OK occasionally, but not part of your weekly shop!',
-          'Good as a treat, once or twice a week.',
-          'This meal is great for the environment - make it a staple!',
-          'As good as it gets - one of the most sustainable recipes.'
-      ];
-
       return (
         <div>
           <AppBar
@@ -54,37 +61,48 @@ class RecipeDetailsPage extends React.Component {
             <Col xs={0} sm={1} md={2}/>
             <Col xs={12} sm={10} md={8}>
                 <Card style={{margin: 20}}>
-                    <CardHeader
-                        title={this.props.recipe.name}
-                        subtitle={this.props.recipe.description}
-                        />
+                    <CardText
+                        style={{height: 80, padding: '0 20px 0 20px'}}
+                    >
+                        <p style={{fontSize: '2em', lineHeight: '80px'}}>
+                            {this.props.recipe.name}
+                        </p>
+                    </CardText>
                     <CardMedia
                      overlay={
                          <CardTitle 
-                            title={"Eco Score: " + (this.props.recipe.totalRating || 0) + "/5"}
-                            subtitle={scoreDescriptions[Math.round(this.props.recipe.totalRating || 0)]}
+                            title={'Eco Score: ' + (this.props.recipe.totalRating || 0) + "/5"}
                         />
                      }
-                     style={{height: this.props.containerWidth*6/12}}
+                     style={{height: this.props.containerWidth*6/12, overflow: 'hidden'}}
                     >
-                        <img src="images/nature-600-337.jpg" />
+                        <img src={'assets/images/' + this.props.recipe.id + '.jpg'} />
                     </CardMedia>
                     <CardTitle 
-                        title="Recipe rating breakdown: "
+                        title="Rating: "
                     />
                     <CardText>
-                        <p>Icons etc</p>
+                        {Object.keys(this.props.recipe.ratings || {}).map((key, index) => {
+                            const name = key;
+                            const value = this.props.recipe.ratings[name];
+                            return (
+                                <p> 
+                                    {name} 
+                                </p>
+                            );
+                        })}
                     </CardText>
                     <CardTitle 
                         title="Recipe: "
                     />
                     <CardText>
-                        <p>{JSON.stringify(this.props.recipe, null, 4)}</p>
+                        <p>{this.props.recipe.description}</p>
                     </CardText>
                 </Card>
             </Col>
             <Col xs={0} sm={1} md={2}/>
           </Row>
+          <div style={{height: 50}} />
         </div>
       );
     }

@@ -12,6 +12,7 @@ import {
   white, darkBlack, fullBlack
 } from 'material-ui/styles/colors';
 import Card from 'material-ui/Card';
+import YouTube from 'react-youtube';
 
 const ListPoint = props => (
   <div style={{margin: '0 auto', width: 350, height: 60}}>{props.children}</div>
@@ -38,7 +39,7 @@ class HomePage extends React.Component {
 
         <BSMiddle style={{backgroundColor: '#0F2364', height: 250}}>
           <div style={{lineHeight: '250px', textAlign: 'center', height: 250}}>
-            <h1 style={{width: '100%', textAlign: 'center', fontWeight: 600, fontSize: '4em', color: white, display: 'inline-block', verticalAlign: 'middle'}}>
+            <h1 style={{width: '90%', textAlign: 'center', fontWeight: 600, fontSize: '4em', color: white, display: 'inline-block', verticalAlign: 'middle'}}>
               WHAT'S FOR DINNER?
             </h1>
           </div>
@@ -63,6 +64,25 @@ class HomePage extends React.Component {
           </Card>
         </BSMiddle>
         <Spacer height="50px" />
+        <BSMiddle
+          style={{textAlign: 'center'}}
+        >
+          <h4>OR</h4>
+          <Spacer height="50px" />
+          <h4 style={{fontWeight: 400}}>
+            Find out more by watching this video from <a href="http://www.adcouncil.org/">Ad Council</a>:
+          </h4>
+          <Card
+            style={{padding: '0 0 -5px 0', margin: 10}}
+          >
+            <YouTube
+              videoId={"WREXBUZBrS8"}
+              opts={{
+                width: '100%',
+              }}
+            />
+          </Card>
+        </BSMiddle>
         <Spacer height="100px" />
       </div>
     );
