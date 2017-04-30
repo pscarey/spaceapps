@@ -15,7 +15,7 @@
     createuser -P -s -e whats-for-dinner
     Set password: pass
   Create DB:
-    createdb whats-for-dinner
+    createdb whats-for-dinnenr
 3) Migrate schema executing: npm run migrate
 4) Set Google Maps API KEY.
   Create a google maps api key here:

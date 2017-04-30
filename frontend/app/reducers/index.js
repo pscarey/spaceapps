@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import app from './app';
+import postcode from './postcode';
+import recipes from './recipes';
 
 const reducers = {
     form: formReducer,
-    app: app
+    postcode: postcode,
+    recipes: recipes
 };
 
 export default combineReducers(reducers);
