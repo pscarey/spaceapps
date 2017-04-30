@@ -10,7 +10,7 @@ class Tagline extends React.Component {
   render(){
     return (
       <div style={{backgroundColor: deepOrangeA400, margin: '0', padding: '10px', textAlign: 'center', height: 120}}>
-        <h2 style={{margin: 'auto', color: white, lineHeight: '100px'}}>Think global, live local.</h2>
+        <h3 style={{margin: 'auto', color: white, lineHeight: '100px'}}>Think global, live local.</h3>
       </div>
     )
   }
